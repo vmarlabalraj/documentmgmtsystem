@@ -60,13 +60,14 @@ function deleteFiles() {
 					return this.value;
 				}).get().join(",");
    console.log("checkedValues"+checkedValues);
-	
+   //startLoading("Publishing Content...");
 	$.ajax({
 		type : "GET",
 		url : "deletefiles.htm?checkedValues="+checkedValues,
 		success : function(result) {
 				$("#document").html(result);
-				showMessage("Deleted the files successfully");
+				//stopLoading();
+				//showMessage("Deleted the files successfully");
 			
 			
 		},
@@ -77,17 +78,42 @@ function deleteFiles() {
 			}else{
 				console.log("Unable to delete");
 			}
+			//stopLoading();
 		}
 	});
 
 	return false;
 }
 
+
+$(function() {
+$('#hiddenFiletype').val( $('#filetype :selected').text());
+$('#filetype').change(function() {
+    var x = $('#filetype :selected').text();
+    $('#hiddenFiletype').val(x);
+});
+});
+
+var startLoading = function(message) {
+
+	if (message) {
+		$("#spiinerText").html(message);
+	} else {
+		$("#spiinerText").html("Loading..Please wait");
+	}
+
+	$('#spinner').modal({
+		backdrop : 'static',
+		keyboard : false
+	})
+}
+
 function uploadpdf() {
+	var filetype=$('#filetype').val();
 	$.ajax({
 		type : "POST",
 		url : "uploadpdf.htm",
-		success : function(result) {
+		success : function(result) {		
 			if(result==""){
 				console.log("Content  Pulished. Please save before you hit publish");
 			}

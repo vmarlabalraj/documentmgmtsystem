@@ -81,9 +81,9 @@ public class HelloController
 	 public ModelAndView showWelcomePage(HttpServletRequest request)
 	 {
 		 ModelAndView model = new ModelAndView("hello", "hello", new Document());
-		 //List<Document> DocumentList = documentDAO.getDocumentList();
-		// System.out.println(DocumentList);
-		 model.addObject("documentList", "");
+		 List<Document> DocumentList = documentDAO.getDocumentList();
+		 System.out.println(DocumentList);
+		 model.addObject("documentList",DocumentList);
 		 model.addObject("document", new Document());
 		 return model;
 	 }

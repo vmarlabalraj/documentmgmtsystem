@@ -92,6 +92,10 @@ input.form-control.txt-field {
     background: url(../img/check1.png) 0px top no-repeat;
     cursor: pointer;
 }
+
+body {
+    background-image: url(".../images/doc.jpg");
+}
 .checkbox-field span {
     top: 8px;
     margin-left: 15px;
@@ -207,6 +211,27 @@ header .logo-container .logo {
 	height: 80px;
 	display: block;
 	text-indent: -9999px;
+}
+.back-image{
+	background: url(../img/doc.jpg) no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover
+}
+
+.back-image-page{
+	background: url(../img/doc.jpg) no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      opacity: 0.7;
+}
+@media screen and (max-width: 1024px){
+    back-image.bg {
+    left: 50%;
+    margin-left: -512px; }
 }
 header .header-menu {
 	padding-right: 30px;
